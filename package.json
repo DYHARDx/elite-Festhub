@@ -50,7 +50,6 @@
     "not dead",
     "not ie 11"
   ]
-=======
 {
   "name": "byamn-festhub",
   "version": "1.0.0",
@@ -103,5 +102,5 @@
     "not ie 11"
   ]
 
->>>>>>> origin/main
 }
+
