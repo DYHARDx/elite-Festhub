@@ -9,7 +9,7 @@ This guide explains how to successfully deploy the BYAMN Festhub project on Verc
 1. Go to [vercel.com](https://vercel.com) and create an account or sign in
 2. Click "New Project" and select "Import Git Repository"
 3. Enter the URL of your BYAMN Festhub repository
-4. Vercel will automatically detect this as a static site
+4. Vercel will automatically detect this as a static site thanks to the vercel.json configuration
 5. Click "Deploy" and your site will be live within minutes
 
 ### 2. Using Vercel CLI
@@ -27,6 +27,7 @@ This guide explains how to successfully deploy the BYAMN Festhub project on Verc
 ## Configuration
 The project includes a `vercel.json` file that specifies:
 - All files should be treated as static assets
+- Framework is set to "static" to prevent build script execution
 - Proper deployment settings for a multi-page static site
 
 ## Features
@@ -43,6 +44,7 @@ If you encounter any issues during deployment:
 2. Check that all assets (images, CSS, JS) are properly referenced
 3. Verify the `vercel.json` file is in the root directory
 4. Make sure the `logo.png` file exists in the root directory
+5. Ensure the framework is set to "static" in vercel.json to avoid build script execution
 
 ## Environment Variables (Optional)
 This project doesn't require any environment variables, but if you add analytics or other services, you can configure them in the Vercel dashboard.
