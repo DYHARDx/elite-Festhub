@@ -1,13 +1,9 @@
 {
   "version": 2,
-  "framework": "static",
   "builds": [
     {
       "src": "**/*",
       "use": "@vercel/static"
     }
-  ],
-  "github": {
-    "silent": true
-  }
+  ]
 }
