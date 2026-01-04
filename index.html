@@ -1,114 +1,486 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Primary Meta Tags -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BYAMN Festhub - Festival Greetings & Wishes</title>
-    <meta name="description" content="Create and share beautiful festival wishes for Diwali, Eid, Christmas, Holi and more. Custom greeting cards for all occasions.">
+    <title>BYAMN Festhub - Free Greeting Cards</title>
+    <meta name="description" content="BYAMN Festhub - Create & share beautiful festival wishes for Diwali, Eid, Christmas, Holi & more. 1000+ free customizable greeting card templates for all occasions.">
+    <meta name="keywords" content="BYAMN Festhub, festival wishes, Diwali cards, Eid greetings, Christmas wishes, Holi messages, free greeting cards, Indian festivals">
+    <meta name="author" content="BYAMN Festhub">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://byamn.vercel.app/">
+    <meta property="og:title" content="BYAMN Festhub - Best Festival Wishes for All Occasions">
+    <meta property="og:description" content="Create & share beautiful festival wishes for Diwali, Eid, Christmas, Holi and more. Free customizable greeting cards.">
+    <meta property="og:image" content="https://byamn.vercel.app/images/social-preview.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://byamn.vercel.app/">
+    <meta property="twitter:title" content="BYAMN Festhub - Best Festival Wishes for All Occasions">
+    <meta property="twitter:description" content="Create & share beautiful festival wishes for Diwali, Eid, Christmas, Holi and more. Free customizable greeting cards.">
+    <meta property="twitter:image" content="https://byamn.vercel.app/images/social-preview.jpg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://byamn.vercel.app/">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="./logo.png">
+    
+    <!-- Preconnect to important domains -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700&family=Tangerine:wght@700&family=Kalam:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Fonts & Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <h1>BYAMN Festhub</h1>
+    <!-- Header Section with H1 for SEO -->
+    <header class="fx-header">
+      <div class="fx-header-inner">
+        <div class="fx-logo-group">
+          <img src="./logo.png" alt="BYAMN" class="fx-logo">
+          <span class="fx-brand">
+            <span class="fx-brand-name">BYAMN Festhub</span>
+            <span class="fx-brand-tag">Festivals</span>
+          </span>
         </div>
-        <nav>
-            <ul>
-                <li><a href="#" class="active">Home</a></li>
-                <li><a href="#categories">Categories</a></li>
-                <li><a href="#events">Calendar</a></li>
-                <li><a href="file.html">URL Shortener</a></li>
-            </ul>
-        </nav>
-        <div class="header-actions">
-            <button class="icon-btn" id="favoritesBtn" title="Favorites">
-                <i class="far fa-heart"></i>
-                <span class="badge" id="favoritesCount" style="display: none;">0</span>
+        <div class="fx-nav-pills">
+          <!-- Quick Access Navigation -->
+          <div class="fx-quick-nav">
+            <a href="#diwali" class="fx-quick-pill" data-category="hindu">Diwali</a>
+            <a href="#holi" class="fx-quick-pill" data-category="hindu">Holi</a>
+            <a href="#christmas" class="fx-quick-pill" data-category="christian">Christmas</a>
+          </div>
+          
+          <!-- Search Button -->
+          <button class="fx-pill" id="headerSearchBtn" aria-label="Search" title="Search Festivals">
+            <i class="fas fa-search"></i>
+          </button>
+          
+          <!-- Favorites Button -->
+          <button class="fx-pill" id="favoritesBtn" aria-label="Favorites" title="Your Favorites">
+            <i class="fas fa-heart"></i>
+            <span class="fx-pill-badge" id="favoritesCount">0</span>
+          </button>
+          
+          <!-- Notifications -->
+          <button class="fx-pill" id="notificationsBtn" aria-label="Notifications" title="Festival Notifications">
+            <i class="fas fa-bell"></i>
+            <span class="fx-pill-badge" id="notificationCount">3</span>
+          </button>
+          
+          <!-- Main Menu Toggle -->
+          <div class="fx-menu-toggle">
+            <button class="fx-pill" id="menuToggle" aria-label="Menu" title="More Options">
+              <i class="fas fa-bars"></i>
             </button>
-            <button class="icon-btn" id="notificationsBtn" title="Notifications">
-                <i class="far fa-bell"></i>
-                <span class="badge" id="notificationCount" style="display: none;">0</span>
-            </button>
+            <div class="fx-nav-menu" id="navMenu">
+              <a href="#about" class="fx-nav-item">
+                <i class="fas fa-info-circle"></i>
+                About Us
+              </a>
+              <a href="#categories" class="fx-nav-item">
+                <i class="fas fa-th-large"></i>
+                All Categories
+              </a>
+              <a href="#calendar" class="fx-nav-item">
+                <i class="fas fa-calendar-alt"></i>
+                Festival Calendar
+              </a>
+              <a href="#trending" class="fx-nav-item">
+                <i class="fas fa-fire"></i>
+                Trending
+              </a>
+              <a href="file.html" class="fx-nav-item">
+                <i class="fas fa-link"></i>
+                Link Shortener
+              </a>
+              <a href="#help" class="fx-nav-item">
+                <i class="fas fa-question-circle"></i>
+                Help & Support
+              </a>
+              <a href="#contact" class="fx-nav-item">
+                <i class="fas fa-envelope"></i>
+                Contact
+              </a>
+            </div>
+          </div>
         </div>
+      </div>
+      <div class="fx-header-accent"></div>
     </header>
-
-    <main>
-        <section class="hero">
-            <h2>Celebrate Every Moment</h2>
-            <p>Create and share beautiful festival greetings with your loved ones</p>
-            <div class="search-container">
-                <input type="text" class="search-input" id="searchInput" placeholder="Search for festivals (e.g., Diwali, Eid)...">
-                <button class="search-btn" id="searchBtn"><i class="fas fa-search"></i></button>
-            </div>
-        </section>
-
+    
+    <!-- Breadcrumb Navigation -->
+    <nav class="fx-breadcrumb" aria-label="Breadcrumb">
         <div class="container">
-            <h2 class="section-title" id="categories">Browse by Category</h2>
-            <div class="category-tabs" id="categoryTabs">
-                <button class="category-tab active" data-category="all">All</button>
-                <button class="category-tab" data-category="hindu">Hindu</button>
-                <button class="category-tab" data-category="muslim">Muslim</button>
-                <button class="category-tab" data-category="christian">Christian</button>
-                <button class="category-tab" data-category="other">Other</button>
-            </div>
-
-            <div class="websites-grid" id="websitesGrid">
-                <!-- Content will be populated by JS -->
-            </div>
-
-            <h2 class="section-title" id="events">Upcoming Events</h2>
-            <section class="events-section">
-                <div class="events-slider" id="eventsSlider">
-                    <!-- Events will be populated by JS -->
-                </div>
-            </section>
+            <ol class="fx-breadcrumb-list">
+                <li class="fx-breadcrumb-item">
+                    <a href="#" class="fx-breadcrumb-link">
+                        <i class="fas fa-home"></i>
+                        Home
+                    </a>
+                </li>
+                <li class="fx-breadcrumb-item">
+                    <span class="fx-breadcrumb-separator">/</span>
+                    <span id="currentPageBreadcrumb">All Festivals</span>
+                </li>
+            </ol>
         </div>
-    </main>
-
-    <footer>
-        <div class="footer-grid">
-            <div class="footer-column">
-                <h3>BYAMN Festhub</h3>
-                <p>India's most loved platform for festival wishes and greetings.</p>
-                <div class="social-links">
-                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
-                </div>
+    </nav>
+    
+    <!-- Dynamic Notification Section -->
+    <div class="notification-section" id="notificationSection">
+        <div class="notification-header">
+            <h3 class="notification-title">Notifications</h3>
+            <div class="notification-actions">
+                <button class="notification-action-btn" id="markAllReadBtn" title="Mark all as read">
+                    <i class="fas fa-check-double"></i>
+                </button>
+                <button class="notification-action-btn" id="clearAllBtn" title="Clear all notifications">
+                    <i class="fas fa-trash"></i>
+                </button>
             </div>
-            <div class="footer-column">
-                <h3>Quick Links</h3>
-                <ul class="footer-links">
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Contact</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Terms of Service</a></li>
-                </ul>
-            </div>
+            <button class="notification-close" id="notificationCloseBtn" aria-label="Close notifications">
+                <i class="fas fa-times"></i>
+            </button>
         </div>
-        <div class="copyright">
-            &copy; 2025 BYAMN Festhub. All rights reserved.
+        
+        <div class="notification-count-summary" id="notificationSummary">
+            Loading notifications...
         </div>
-    </footer>
-
-    <!-- Festival Modal -->
-    <div class="modal-overlay" id="festivalModal">
-        <div class="modal-content">
-            <button class="modal-close" id="closeModal">&times;</button>
-            <h3 id="modalTitle">Festival Title</h3>
-            <p id="modalDate" class="event-date">Date</p>
-            <p id="modalDescription">Description</p>
-            <div style="margin-top: 2rem; text-align: center;">
-                <a href="#" id="modalLink" class="btn-visit" style="display: inline-block; padding: 10px 20px;">Create Wish</a>
+        
+        <div class="notification-list" id="notificationList">
+            <!-- Notifications will be dynamically inserted here -->
+        </div>
+        
+        <div class="collapse-section" id="olderNotificationsSection" style="display: none;">
+            <button class="collapse-toggle" id="olderNotificationsToggle">
+                <span>Show older notifications</span>
+                <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="collapse-content" id="olderNotificationsContent">
+                <!-- Older notifications will be inserted here -->
             </div>
         </div>
     </div>
-
+    
+    <!-- Notification Toast -->
+    <div class="notification-toast" id="notificationToast">
+        <div class="toast-content">
+            <div class="toast-icon" id="toastIcon">
+                <i class="fas fa-bell"></i>
+            </div>
+            <div class="toast-text">
+                <div class="toast-title" id="toastTitle">New Notification</div>
+                <div class="toast-message" id="toastMessage">You have a new notification</div>
+            </div>
+        </div>
+    </div>
+    
+    <main class="container">
+        <!-- Search Section -->
+        <section class="search-section" aria-label="Search festival wishes">
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Search for Diwali, Eid, Christmas wishes..." id="searchInput" aria-label="Search festival wishes">
+                <button class="search-btn" id="searchBtn" aria-label="Search">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </section>
+        
+        <!-- Categories Section -->
+        <section class="categories-section" aria-labelledby="categories-heading">
+            <h2 id="categories-heading" class="section-title">Browse Festival Categories</h2>
+            <div class="categories" id="categoriesContainer">
+                <button class="category-btn active" data-category="all">
+                    <i class="fas fa-star"></i> All
+                </button>
+                <button class="category-btn hindu" data-category="hindu">
+                    <i class="fas fa-om"></i> Hindu
+                </button>
+                <button class="category-btn muslim" data-category="muslim">
+                    <i class="fas fa-mosque"></i> Muslim
+                </button>
+                <button class="category-btn christian" data-category="christian">
+                    <i class="fas fa-cross"></i> Christian
+                </button>
+                <button class="category-btn other" data-category="other">
+                    <i class="fas fa-globe"></i> Other
+                </button>
+            </div>
+        </section>
+        
+        <!-- Websites Grid Section -->
+        <section class="websites-section" aria-labelledby="popular-wishes-heading">
+            <h2 id="popular-wishes-heading" class="section-title">Most Popular Festival Wishes</h2>
+            <div class="websites-grid" id="websitesGrid">
+                <!-- Cards will be dynamically inserted here -->
+            </div>
+        </section>
+        
+        <!-- Upcoming Events Section -->
+        <section class="events-section" aria-labelledby="upcoming-events-heading">
+            <h2 id="upcoming-events-heading" class="section-title">Upcoming Festival Dates 2025</h2>
+            <div class="events-slider" id="eventsSlider">
+                <!-- Events will be dynamically inserted here -->
+            </div>
+        </section>
+        
+        <!-- Featured Section -->
+        <section class="featured-section" aria-labelledby="featured-heading">
+            <h2 id="featured-heading" class="visually-hidden">Link Shortner</h2>
+            <div class="featured-card">
+                <div class="featured-image" style="background-image: url('https://kinsta.com/wp-content/uploads/2023/12/create-url-shortener-with-python-1024x512.png');" aria-label="Diwali Festival"></div>
+                <div class="featured-content">
+                    <h3 class="featured-title">Create Link Shortner and Earn</h3>
+                    <p class="featured-description">BYAMN Festhub's Link Shortener lets you create short, shareable links in seconds and start earning from every click. Perfect for bloggers, students, and marketers, our tool is fast, secure, and easy to use. Track link performance in real time and boost your online income effortlessly.</p>
+                    <a href="file.html" class="btn btn-hindu">
+                        Try Create Link <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- How It Works Section -->
+        <section class="how-it-works" aria-labelledby="how-it-works-heading">
+            <h2 id="how-it-works-heading" class="section-title">How BYAMN Festhub Works</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">Choose a Template</h3>
+                    <p class="step-description">Browse our collection of beautifully designed templates for every festival and occasion.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">Customize Your Design</h3>
+                    <p class="step-description">Add festival, and write your custom Name to make it unique.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">Share With Loved Ones</h3>
+                    <p class="step-description">Send directly via social media, email, or download to share however you prefer.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Testimonials Section -->
+        <section class="testimonials-section" aria-labelledby="testimonials-heading">
+            <h2 id="testimonials-heading" class="section-title">What Our Users Say</h2>
+            <div class="testimonials">
+                <div class="testimonial">
+                    <div class="rating">
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                    </div>
+                    <p class="testimonial-text">"I used BYAMN Festhub to create Diwali wishes last year and all my relatives loved them! The templates are beautiful and so easy to customize."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar" style="background-image: url('https://randomuser.me/api/portraits/women/32.jpg');" aria-label="Priya Sharma"></div>
+                        <div class="author-info">
+                            <h4>Priya Sharma</h4>
+                            <p>Mumbai, India</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <div class="rating">
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                        <i class="far fa-star star"></i>
+                    </div>
+                    <p class="testimonial-text">"As someone who's not very tech-savvy, I found BYAMN Festhub incredibly easy to use. Created beautiful Eid wishes in minutes!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar" style="background-image: url('https://randomuser.me/api/portraits/men/45.jpg');" aria-label="Ahmed Khan"></div>
+                        <div class="author-info">
+                            <h4>Ahmed Khan</h4>
+                            <p>Delhi, India</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <div class="rating">
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star-half-alt star"></i>
+                    </div>
+                    <p class="testimonial-text">"The Christmas card creator saved me so much time. I could personalize cards for all my friends with just a few clicks."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar" style="background-image: url('https://randomuser.me/api/portraits/women/68.jpg');" aria-label="Maria Fernandes"></div>
+                        <div class="author-info">
+                            <h4>Maria Fernandes</h4>
+                            <p>Goa, India</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Newsletter Section -->
+        <section class="newsletter-section" aria-labelledby="newsletter-heading">
+            <h2 id="newsletter-heading" class="newsletter-title">Get Festival Updates</h2>
+            <p class="newsletter-description">Subscribe to get notified about upcoming festivals and new greeting templates</p>
+            <form class="newsletter-form" id="newsletterForm">
+                <input type="email" class="newsletter-input" placeholder="Your email address" required aria-label="Email address">
+                <button type="submit" class="newsletter-btn">Subscribe</button>
+            </form>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>BYAMN Festhub</h3>
+                    <p style="color: #D1D5DB; font-size: 0.9rem; margin-bottom: 1rem;">India's most loved platform for festival wishes and greetings.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Categories</h3>
+                    <ul class="footer-links">
+                        <li class="footer-link"><a href="#">Hindu Festivals</a></li>
+                        <li class="footer-link"><a href="#">Muslim Festivals</a></li>
+                        <li class="footer-link"><a href="#">Christian Festivals</a></li>
+                        <li class="footer-link"><a href="#">Birthday Wishes</a></li>
+                        <li class="footer-link"><a href="#">Anniversary</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Popular</h3>
+                    <ul class="footer-links">
+                        <li class="footer-link"><a href="#">Diwali Wishes</a></li>
+                        <li class="footer-link"><a href="#">Eid Mubarak</a></li>
+                        <li class="footer-link"><a href="#">Christmas Cards</a></li>
+                        <li class="footer-link"><a href="#">New Year Greetings</a></li>
+                        <li class="footer-link"><a href="#">Holi Wishes</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Company</h3>
+                    <ul class="footer-links">
+                        <li class="footer-link"><a href="#">About Us</a></li>
+                        <li class="footer-link"><a href="#">Contact</a></li>
+                        <li class="footer-link"><a href="#">Privacy Policy</a></li>
+                        <li class="footer-link"><a href="#">Terms of Service</a></li>
+                        <li class="footer-link"><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                &copy; 2025 BYAMN Festhub. All rights reserved.
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Festival Popup Modal -->
+    <div class="modal-overlay" id="festivalModal">
+        <div class="festival-modal">
+            <button class="modal-close" id="modalClose">&times;</button>
+            <h3 class="modal-title" id="modalFestivalTitle">Diwali Festival</h3>
+            <span class="modal-date" id="modalFestivalDate">20 October 2025</span>
+            <p class="modal-description" id="modalFestivalDesc">The festival of lights celebrated across India with lamps, fireworks, and sweets.</p>
+            <div class="modal-buttons">
+                <a href="#" class="btn btn-primary" id="modalWishNow">
+                    Send Wishes Now <i class="fas fa-gift"></i>
+                </a>
+                <button class="btn" id="modalLeaveReview" style="background: var(--light-gray); color: var(--dark);">
+                    Leave a Review <i class="fas fa-star"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Review Modal -->
+    <div class="modal-overlay" id="reviewModal">
+        <div class="review-modal">
+            <button class="modal-close" id="reviewModalClose">&times;</button>
+            <h3 class="review-title">Rate Your Experience</h3>
+            <div class="rating-input" id="ratingStars">
+                <i class="far fa-star rating-star" data-rating="1"></i>
+                <i class="far fa-star rating-star" data-rating="2"></i>
+                <i class="far fa-star rating-star" data-rating="3"></i>
+                <i class="far fa-star rating-star" data-rating="4"></i>
+                <i class="far fa-star rating-star" data-rating="5"></i>
+            </div>
+            <textarea class="review-textarea" placeholder="Share your experience with this festival..." id="reviewText"></textarea>
+            <button class="btn btn-primary" id="submitReview" style="width: 100%;">
+                Submit Review <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
+    
     <script src="js/script.js"></script>
+    
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "BYAMN Festhub",
+      "url": "https://byamn.vercel.app",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://byamn.vercel.app/search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      },
+      "description": "Create and share beautiful festival wishes for Diwali, Eid, Christmas, Holi and more. Custom greeting cards for all occasions.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "BYAMN Festhub",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "./logo.png"
+        }
+      }
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://byamn.vercel.app"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "All Festival Wishes"
+      }]
+    }
+    </script>
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LHQ34PSHTY"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-LHQ34PSHTY'); // Replace with your GA4 ID
+    </script>
 </body>
 </html>
+
