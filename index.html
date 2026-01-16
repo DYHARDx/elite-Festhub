@@ -55,7 +55,7 @@
                     <span class="fx-brand-tag">Festivals</span>
                 </span>
             </div>
-            <nav>
+            <nav id="navMenu">
                 <ul>
                     <li><a href="#" class="active">Home</a></li>
                     <li><a href="#categories">Categories</a></li>
@@ -71,6 +71,9 @@
                 <button class="icon-btn" id="notificationsBtn" title="Notifications">
                     <i class="far fa-bell"></i>
                     <span class="badge" id="notificationCount" style="display: none;">0</span>
+                </button>
+                <button class="icon-btn mobile-toggle" id="menuToggle" title="Menu">
+                    <i class="fas fa-bars"></i>
                 </button>
             </div>
     </header>
@@ -440,11 +443,20 @@
 
         // Setup navigation event listeners
         function setupNavigationEventListeners() {
-            // Header search button
-            headerSearchBtn.addEventListener('click', function () {
-                searchInput.focus();
-                searchInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            });
+            // Mobile Menu Elements
+            const menuToggle = document.getElementById('menuToggle');
+            const navMenu = document.getElementById('navMenu');
+            const favoritesBtn = document.getElementById('favoritesBtn');
+            const notificationsBtn = document.getElementById('notificationsBtn');
+
+            // Header search button (check if exists)
+            const headerSearchBtn = document.getElementById('headerSearchBtn');
+            if (headerSearchBtn) {
+                headerSearchBtn.addEventListener('click', function () {
+                    searchInput.focus();
+                    searchInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                });
+            }
 
             // Quick navigation pills
             quickNavPills.forEach(pill => {
@@ -465,7 +477,7 @@
                     renderWebsites();
 
                     // Scroll to categories section
-                    document.querySelector('.categories-section').scrollIntoView({
+                    document.querySelector('.categories-section')?.scrollIntoView({
                         behavior: 'smooth',
                         block: 'start'
                     });
@@ -473,27 +485,36 @@
             });
 
             // Favorites button
-            favoritesBtn.addEventListener('click', function () {
-                showFavoritesModal();
-            });
+            if (favoritesBtn) {
+                favoritesBtn.addEventListener('click', function () {
+                    showFavoritesModal();
+                });
+            }
 
             // Notifications button
-            notificationsBtn.addEventListener('click', function () {
-                toggleNotificationSection();
-            });
+            if (notificationsBtn) {
+                notificationsBtn.addEventListener('click', function () {
+                    toggleNotificationSection();
+                });
+            }
 
             // Menu toggle
-            menuToggle.addEventListener('click', function (e) {
-                e.stopPropagation();
-                navMenu.classList.toggle('show');
-            });
+            if (menuToggle && navMenu) {
+                menuToggle.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    navMenu.classList.toggle('show');
+                });
 
-            // Close menu when clicking outside
-            document.addEventListener('click', function (e) {
-                if (!navMenu.contains(e.target) && e.target !== menuToggle) {
-                    navMenu.classList.remove('show');
-                }
-            });
+                // Close menu when clicking outside
+                document.addEventListener('click', function (e) {
+                    if (navMenu.classList.contains('show') &&
+                        !navMenu.contains(e.target) &&
+                        e.target !== menuToggle &&
+                        !menuToggle.contains(e.target)) {
+                        navMenu.classList.remove('show');
+                    }
+                });
+            }
 
             // Menu item clicks
             document.querySelectorAll('.fx-nav-item').forEach(item => {
